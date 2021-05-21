@@ -24,8 +24,7 @@ const {
 
 app.use(cors());
 // Set static folder
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static(path.join(__dirname, 'public/build')));
 // Run when client connects
 io.on('connection', socket =>
 {
@@ -167,7 +166,10 @@ io.on('connection', socket =>
 const PORT = process.env.PORT || 3001;
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
+app.get('/', (req, res) =>
+{
+    res.sendFile(path.join(__dirname, 'public/build/index.html'))
+});
 app.get('/api/room/get/all', (req, res) =>
 {
     res.send(JSON.stringify(getAllRooms()));
