@@ -23,8 +23,6 @@ const {
       } = require('./src/utils/RoomManager');
 
 app.use(cors());
-// Set static folder
-app.use(express.static(path.join(__dirname, 'public/build')));
 // Run when client connects
 io.on('connection', socket =>
 {
