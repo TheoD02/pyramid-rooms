@@ -127,7 +127,7 @@ export default function PlayGameRoom()
 
     const getRoomData = () =>
     {
-        axios.get(`http://192.168.1.50:3001/api/room/get/${match.params.roomCode}`).then((roomInfo) =>
+        axios.get(`https://pyramidsgame.herokuapp.com/api/room/get/${match.params.roomCode}`).then((roomInfo) =>
         {
             roomInfo = roomInfo.data;
             if (typeof (roomInfo.error) === 'string') {

@@ -23,7 +23,7 @@ export default function App(props)
     });
 
     const {isLoading, error, data} = useQuery('repoData', () =>
-        fetch(`http://192.168.1.50:3001/api/room/get/all`).then(res =>
+        fetch(`https://pyramidsgame.herokuapp.com/api/room/get/all`).then(res =>
             res.json(),
         ));
 
